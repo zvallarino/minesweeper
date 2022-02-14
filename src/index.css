@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.tile{
+  display:flex;
+  width:10vw;
+  height:10vh;
+  background-color: grey;
+  justify-content: center;
+  align-items: center;
+}
+
+.tileBlue{
+  display:flex;
+  width:10vw;
+  height:10vh;
+  background-color: blue;
+  justify-content: center;
+  align-items: center;
+}
+
+.tileYellow{
+  display:flex;
+  width:10vw;
+  height:10vh;
+  background-color: yellow;
+  justify-content: center;
+  align-items: center;
+}
+
