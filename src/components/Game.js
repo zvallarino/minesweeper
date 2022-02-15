@@ -1,11 +1,18 @@
 import GameBoard from './GameBoard';
-import TitleCanvas from './TileCanvas';
+import { useState, useRef } from "react";
+
 
 function Game() {
+
+  const [clickedArray,setClickedArray] = useState([])
+  const clickedRef = useRef([])
+
+  console.log(clickedRef)
+
+
   return (
     <div className="game">
-      <GameBoard />
-      {/* <TitleCanvas /> */}
+      <GameBoard setClickedArray = {setClickedArray} clickedArray = {clickedArray} clickedRef = {clickedRef}/>
     </div>
   );
 }

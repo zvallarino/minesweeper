@@ -14,8 +14,6 @@ code {
 
 .tile{
   display:flex;
-  width:10vw;
-  height:10vh;
   background-color: grey;
   justify-content: center;
   align-items: center;
@@ -23,8 +21,6 @@ code {
 
 .tileBlue{
   display:flex;
-  width:10vw;
-  height:10vh;
   background-color: blue;
   justify-content: center;
   align-items: center;
@@ -37,5 +33,25 @@ code {
   background-color: yellow;
   justify-content: center;
   align-items: center;
+}
+
+.outerDiv{
+  display:flex;
+  box-sizing: border-box;
+  border: 5px solid blue;
+  justify-content: center;
+  align-items: center;
+  
+  width:100vw;
+  height:100vh;
+}
+
+.gameboard{
+  display:flex;
+  align-items: flex-start;
+  border: 5px solid red;
+  flex-wrap: wrap;
+  width:50vw;
+  height:70vh;
 }
 
