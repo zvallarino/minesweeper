@@ -1,22 +1,25 @@
-import { useState,useRef } from "react";
+import { useState,useRef, useEffect } from "react";
 
-function Tile({ tsWidth, tsHieght, RandomNumberZ, i,j, setClickedArray, clickedArray, clickedRef}) {
+function Tile({ tsWidth, tsHieght, bombOrNot, i,
+  j, setClickedArray, clickedArray,
+  clickedRef, arraySize, BombLocationObject
+}) {
+  let bombNumber = squareCreator(i,j); 
+  
 
+  
 
 
   const [buttonColor,setButtonColor] = useState(false)
   const [color,setColor]=useState("")
+  const bombRef = useRef(false)
+  const [clickedOrNot,setClicked] = useState(false)
 
-  const indentifier = [i,j];
+  const indentifier = [`${i}${String.fromCharCode(97 + j)}`];
 
-  function handleClick(e){
-    console.log(e)
-    console.log(e.type)
-    squareCreator(i,j)
-    setButtonColor(true)
-    setColor("tileYellow")
-    CheckIfClicked()
-  }
+  BombLocationObject.current[indentifier] = BombOrNotFunction();
+
+
 
   function handleContext(e){
     e.preventDefault()
@@ -29,32 +32,64 @@ function Tile({ tsWidth, tsHieght, RandomNumberZ, i,j, setClickedArray, clickedA
   function squareCreator(i,j){
 
     let top = i-1
-    let click = i
+    let middleV = i
     let bottom = i+1
 
-    let topA = j-1
-    let topB = j
-    let topC = j+1
+    let left = String.fromCharCode(97 + j-1)
+    let middleH = String.fromCharCode(97 + j)
+    let right = String.fromCharCode(97 + j+1)
 
-    let arrayz = [
-      [top,topA],[top,topB],[top,topC],
-      [click,topA],[click,topB],[click,topC],
-      [bottom,topA],[bottom,topB],[bottom,topC]
-  ]
+  let arrayz = [
+    [`${top}${left}`],[`${top}${middleH}`],[`${top}${right}`],
+    [`${middleV}${left}`],[`${middleV}${right}`],
+    [`${bottom}${left}`],[`${bottom}${middleH}`],[`${bottom}${right}`]
+]
 
-  console.log(arrayz)
+let counter = 0;
 
-  clickedRef.current = arrayz
-  console.log(clickedRef.current)
+let bombsOnly = getKeyByValue(BombLocationObject.current,"BOMB")
+console.log(bombsOnly)
 
+arrayz.forEach((element)=>{
+  if(bombsOnly.includes(element[0])){
+    counter+=1
+  }
+})
 
+return counter
   }
 
-  function CheckIfClicked(){
-    if(clickedRef.current.includes(indentifier)){
-      setColor("tileYellow")
+  function getKeyByValue(object, value) {
+    return Object.keys(object).filter(key => object[key] === value);
+  }
+
+  function BombOrNotFunction(){
+    if(bombOrNot>2){
+      return "BOMB"
+    }else{
+      return "NOT"
     }
   }
+
+ bombRef.current = BombOrNotFunction()
+
+ function returns(){
+   if(bombRef.current === "BOMB"){
+     return "Bomb"
+   }else{
+     return squareCreator(i,j)
+   }
+ }
+
+ function handleClick(e){
+  console.log(e)
+  console.log(e.type)
+  setButtonColor(true)
+  setColor("tileYellow")
+  setClicked(true)
+}
+
+ 
 
 
   return (
@@ -64,8 +99,10 @@ function Tile({ tsWidth, tsHieght, RandomNumberZ, i,j, setClickedArray, clickedA
     className={buttonColor?`${color}`:"tile"}
     style={{ color: 'blue', height : tsHieght, width: tsWidth }}
     >
-      {i}
-      {String.fromCharCode(97 + j)}
+      
+      {clickedOrNot?returns():null}
+      {/* {bombNumber}
+      {returns()} */}
     </button>
   );
 }

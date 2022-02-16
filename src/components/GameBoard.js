@@ -3,7 +3,8 @@ import Tile from "./Tile";
 import {useState,useRef} from "react"
 
 function GameBoard(
- {setClickedArray, clickedArray, clickedRef}
+ {setClickedArray, clickedArray, clickedRef,
+  BombLocationObject}
 ) {
   
 
@@ -12,7 +13,9 @@ function GameBoard(
   const SCREEN_WIDTH = window.innerWidth;
   const SCREEN_HEIGHT = window.innerHeight;
 
-  const arraySize = 10;
+  //Determines the size of the map 4 x 4, 8 x 8 etc/
+  const arraySize = 4;
+
 
   const tsWidth = (SCREEN_WIDTH*.5)/arraySize;
   const tsHieght = (SCREEN_HEIGHT*.7)/arraySize;
@@ -22,19 +25,21 @@ function GameBoard(
     return Math.floor((Math.random() * x));
   }
 
-  let RandomNumberZ = RandomNumber(10)
+
 
 
   const topRow = [...Array(arraySize)].map((_, i) =>[...Array(arraySize)].map((_, j) =>
   <Tile
   i ={i}
   j = {j}
-  RandomNumber = {RandomNumber}
+  bombOrNot = {RandomNumber(4)}
   setClickedArray = {setClickedArray}
   clickedArray = {clickedArray}
   tsWidth = {tsWidth}
   tsHieght={tsHieght}
   clickedRef = {clickedRef}
+  arraySize = {arraySize}
+  BombLocationObject = {BombLocationObject}
   />))
   
 

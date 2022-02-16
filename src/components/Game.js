@@ -6,13 +6,18 @@ function Game() {
 
   const [clickedArray,setClickedArray] = useState([])
   const clickedRef = useRef([])
+  const BombLocationObject = useRef({})
 
-  console.log(clickedRef)
 
 
   return (
     <div className="game">
-      <GameBoard setClickedArray = {setClickedArray} clickedArray = {clickedArray} clickedRef = {clickedRef}/>
+      <GameBoard
+      setClickedArray = {setClickedArray}
+      clickedArray = {clickedArray}
+      clickedRef = {clickedRef}
+      BombLocationObject = {BombLocationObject}
+      />
     </div>
   );
 }
