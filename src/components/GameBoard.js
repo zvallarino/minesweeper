@@ -4,7 +4,7 @@ import {useState,useRef} from "react"
 
 function GameBoard(
  {setClickedArray, clickedArray, clickedRef,
-  BombLocationObject}
+  BombLocationObject, gameInformation}
 ) {
   
 
@@ -14,7 +14,7 @@ function GameBoard(
   const SCREEN_HEIGHT = window.innerHeight;
 
   //Determines the size of the map 4 x 4, 8 x 8 etc/
-  const arraySize = 4;
+  const arraySize = 3;
 
 
   const tsWidth = (SCREEN_WIDTH*.5)/arraySize;
@@ -40,6 +40,7 @@ function GameBoard(
   clickedRef = {clickedRef}
   arraySize = {arraySize}
   BombLocationObject = {BombLocationObject}
+  gameInformation = {gameInformation}
   />))
   
 
