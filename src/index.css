@@ -12,28 +12,6 @@ code {
     monospace;
 }
 
-.tile{
-  display:flex;
-  background-color: grey;
-  justify-content: center;
-  align-items: center;
-}
-
-.tileBlue{
-  display:flex;
-  background-color: blue;
-  justify-content: center;
-  align-items: center;
-}
-
-.tileYellow{
-  display:flex;
-  width:10vw;
-  height:10vh;
-  background-color: yellow;
-  justify-content: center;
-  align-items: center;
-}
 
 .outerDiv{
   display:flex;
@@ -41,17 +19,22 @@ code {
   border: 5px solid blue;
   justify-content: center;
   align-items: center;
-  
   width:100vw;
   height:100vh;
 }
 
 .gameboard{
-  display:flex;
+  display: flex;
+  flex-wrap: wrap; 
   align-items: flex-start;
   border: 5px solid red;
-  flex-wrap: wrap;
   width:50vw;
   height:70vh;
 }
 
+.tile{
+  display:flex;
+  background-color: yellow;
+  justify-content: center;
+  align-items: center;
+}

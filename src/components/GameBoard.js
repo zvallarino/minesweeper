@@ -1,14 +1,17 @@
 import Tile from "./Tile";
 
 import {useState,useRef} from "react"
+import Title from "./TitleClass";
+import TitleClass from "./TitleClass";
+import TitleOverall from "./TileOverall";
+
 
 function GameBoard(
- {setClickedArray, clickedArray, clickedRef,
-  BombLocationObject, gameInformation}
+ {
+  setClickedArray, clickedArray, clickedRef,
+  BombLocationObject, gameInformation, gameInformationState, setGameInformation
+}
 ) {
-  
-
-
 
   const SCREEN_WIDTH = window.innerWidth;
   const SCREEN_HEIGHT = window.innerHeight;
@@ -17,38 +20,32 @@ function GameBoard(
   const arraySize = 3;
 
 
-  const tsWidth = (SCREEN_WIDTH*.5)/arraySize;
-  const tsHieght = (SCREEN_HEIGHT*.7)/arraySize;
+  const tsWidth = (SCREEN_WIDTH*.2)/arraySize;
+  const tsHieght = (SCREEN_HEIGHT*.2)/arraySize;
   // TileSize: Note the .5 and .7 is to account for the size of the gameboard. check the width and height of CSS. It matches.
   
   function RandomNumber(x){
     return Math.floor((Math.random() * x));
   }
 
+  // const topRow = [...Array(arraySize)].map((_, i) =>[...Array(arraySize)].map((_, j) =>
+  // <TitleClass
+  // color = "red"
+  // backgroundColor = "blue"
+  // w = {tsWidth}
+  // h={tsHieght}
+  // bombNumber = {RandomNumber(4)}
 
-
-
-  const topRow = [...Array(arraySize)].map((_, i) =>[...Array(arraySize)].map((_, j) =>
-  <Tile
-  i ={i}
-  j = {j}
-  bombOrNot = {RandomNumber(4)}
-  setClickedArray = {setClickedArray}
-  clickedArray = {clickedArray}
-  tsWidth = {tsWidth}
-  tsHieght={tsHieght}
-  clickedRef = {clickedRef}
-  arraySize = {arraySize}
-  BombLocationObject = {BombLocationObject}
-  gameInformation = {gameInformation}
-  />))
+  // i={i}
+  // j={j}
+  // />))
   
 
   return (
 
     <div className ="outerDiv">
     <div className="gameboard">
-     {topRow}
+     {/* {topRow} */}
     </div>
     </div>
   );
