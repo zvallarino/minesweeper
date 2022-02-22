@@ -5,42 +5,30 @@ class ATwo extends React.Component{
 
   constructor(props) {
     super(props);
-    this.myRef = React.createRef();
+    this.state = {
+      "red":"blue"
+    }
   }
   
 
   componentDidMount = () => {
     console.log("This just fired")
     console.log("ATwo")
+    // this.stateFunction()
     console.log(this)
     console.log("ATwo")
   }
 
-  bombGenerator = (x) =>{
-    let bombNumber = Math.floor((Math.random() * x))
-    return bombNumber
-}
-
-  gameBoardGenerator = () => 
-    [...Array(2)].map((_, i) =>[...Array(2)].map((_, j) =>
-  <BTwo
-    state = {this}
-    ref={this.myRef}
-    number = {this.bombGenerator(9)}
-  />))
-
-  
-
- 
-  
-  //  user = {this.state.user}
-  // handleAge = {this.handleAge}
+  // stateFunction = () =>{
+  //   this.setState((state) => {
+  //     return {random:state.number + 1};
+  //   });
+  // }
 
   render() {
-    console.log('this is the render function')
     return (
       <>
-    {this.gameBoardGenerator()}
+    <BTwo state={this.state} stateFunction = {this.stateFunction} />
     </>
     );
   }

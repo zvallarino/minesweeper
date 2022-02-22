@@ -3,19 +3,21 @@ import React from "react";
 class BTwo extends React.Component{
   constructor(props) {
     super(props)
+ 
   }
 
   returnThis = () =>{
     console.log(this)
-    console.log(this.props.state.myRef.current)
 
   }
 
   componentDidMount = () => {
     console.log('this just fired 2')
-    this.props.state.myRef.current=  this.props.state.myRef.current.push(9)
-    
+  
+    console.log('this just fired 2')
   }
+
+  
 
 
 
@@ -23,7 +25,7 @@ class BTwo extends React.Component{
     return (
       <div>
         {this.returnThis()}
-        <button >Update age</button>
+        <button>Yo this be crazy</button>
       </div>
     );
   }
