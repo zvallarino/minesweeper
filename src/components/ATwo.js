@@ -10,11 +10,8 @@ class ATwo extends React.Component{
   }
 
   componentDidMount = () => {
-    console.log(this)
-    console.log("lol")
     this.numberOfBombsPerSquare(this.divRef.current)
     console.log(this.divRef.current)
-    console.log("lol")
   }
 
   arrayOfClick = (x,y) =>{
@@ -52,7 +49,6 @@ class ATwo extends React.Component{
       }
   }
   refObject[property].numberOfBombs = counter
-  console.log(refObject[property].numberOfBombs)
   }
   }
 
@@ -77,9 +73,8 @@ class ATwo extends React.Component{
   h = {this.props.tileHieght}
   w = {this.props.tileWidth}
   randomNumber = {this.randomNumber(4)}
-  backgroundColor = {"red"}
+  backgroundColor = {"#FAFBA6"}
   clicked = {false}
-
   />))
 
 

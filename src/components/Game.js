@@ -1,10 +1,4 @@
-import GameBoard from './GameBoard';
-import { useState, useRef } from "react";
-import TileOverall from './TileOverall';
 import ATwo from './ATwo';
-import TSone from './TSone';
-import SAone from './SAone';
-
 
 function Game() {
 
