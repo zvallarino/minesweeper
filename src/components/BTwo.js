@@ -80,7 +80,9 @@ class BTwo extends React.Component{
   isABomb = () =>{
     if(this.props.randomNumber > 2){
         return "BOMB"
-    } 
+    } else {
+      return "NOT"
+    }
 }
 
 isAZero = () => {
